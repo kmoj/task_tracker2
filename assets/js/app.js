@@ -70,12 +70,17 @@ function init_manages() {
      let taskId = $(btn).data('task-id');
      let newStartTime = "";
      let newEndTime = "";
+     let theEditBtn = null;
+     let theDeleteBtn = null;
+     let theStartInput = null;
+     let theEndInput = null;
 
      $(".timeblock-edit-button").each(function() {
          var btn = $(this);
 
          if ($(btn).data('timeblock-id') == timeblockId){
-             $(btn).css("display", "");
+             theEditBtn = $(btn);
+             //$(btn).css("display", "");
          }
      });
 
@@ -83,7 +88,8 @@ function init_manages() {
          var btn = $(this);
 
          if ($(btn).data('timeblock-id') == timeblockId){
-             $(btn).css("display", "");
+             theDeleteBtn = $(btn);
+             //$(btn).css("display", "");
          }
      });
 
@@ -91,7 +97,8 @@ function init_manages() {
          var input = $(this);
 
          if ($(input).data('timeblock-id') == timeblockId){
-             $(input).css("pointer-events", "none");
+             //$(input).css("pointer-events", "none");
+             theStartInput = $(input);
              newStartTime = $(input).val();
          }
      });
@@ -100,11 +107,18 @@ function init_manages() {
          var input = $(this);
 
          if ($(input).data('timeblock-id') == timeblockId){
-             $(input).css("pointer-events", "none");
+             theEndInput = $(input);
+             //$(input).css("pointer-events", "none");
              newEndTime = $(input).val();
          }
      });
 
+    let msg = checkStartEndTime(newStartTime, newEndTime);
+     if (msg != "") {
+        alert("ERROR: " + msg)
+         newStartTime = "";
+         newEndTime = "";
+     }
 
      let text = JSON.stringify({
          timeblock: {
@@ -120,12 +134,24 @@ function init_manages() {
          dataType: "json",
          contentType: "application/json; charset=UTF-8",
          data: text,
-         error: console.log(text),
-         success: (resp) => {console.log(resp); alert("update successfully");},
+         success: (resp) => { toggleBtnInputDisplay()},
+         error: function (jqXHR, textStatus, errorThrown) {
+             if (jqXHR.status == 422) {
+                // alert("invalid input");
+             } else {
+                // alert('unexpected error');
+             }
+         },
      });
 
-     $(btn).css("display", "none");
- }
+     function toggleBtnInputDisplay() {
+         $(theEditBtn).css("display", "");
+         $(theDeleteBtn).css("display", "");
+         $(theStartInput).css("pointer-events", "none");
+         $(theEndInput).css("pointer-events", "none");
+         $(btn).css("display", "none");
+     }
+}
 
 function timeblock_edit_click(ev) {
 
@@ -192,6 +218,13 @@ function task_submit_click(ev) {
     let endTime = $(endInput).val();
     let taskId = btn.data('task-id');
 
+    let msg = checkStartEndTime(startTime, endTime);
+    if (msg != "") {
+        alert("ERROR: " + msg);
+        startTime = "";
+        endTime = "";
+    }
+
     let text = JSON.stringify({
         timeblock: {
             end: endTime,
@@ -206,9 +239,33 @@ function task_submit_click(ev) {
         dataType: "json",
         contentType: "application/json; charset=UTF-8",
         data: text,
-        error: console.log(text),
         success: (resp) => {console.log(resp);},
+        error: function (jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status == 422) {
+               // alert("invalid time input");
+            } else {
+               // alert('unexpected error');
+            }
+            location.reload();
+        },
     });
+
+}
+
+function checkStartEndTime(startTime, endTime) {
+    let reg = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2})$/;
+    let r1 = startTime.match(reg);
+    let r2 = endTime.match(reg);
+    let d1 = new Date(startTime);
+    let d2 = new Date(endTime);
+
+    if(r1 == null || r2 == null) {
+        return "time format incorrect";
+    } else if (Date.parse(d1) - Date.parse(d2) > 0) {
+        return "The end time before start time";
+    } else {
+        return "";
+    }
 
 }
 
