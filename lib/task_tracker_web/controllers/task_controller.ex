@@ -65,9 +65,14 @@ defmodule TaskTrackerWeb.TaskController do
   end
 
   def edit(conn, %{"id" => id}) do
+    current_user = conn.assigns[:current_user]
+
+    managee_users = Account.get_managee_user(current_user)
+    |> Enum.map(fn(x)-> Accounts.get_user!(x.managee_id) end)
+
     task = Job.get_task!(id)
     changeset = Job.change_task(task)
-    render(conn, "edit.html", task: task, changeset: changeset)
+    render(conn, "edit.html", task: task, managee_users: managee_users, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "task" => task_params}) do
