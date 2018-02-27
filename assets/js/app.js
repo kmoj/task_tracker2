@@ -199,15 +199,20 @@ function timeblock_delete_click(ev) {
     let btn = $(ev.target);
     let timeblock_id = btn.data('timeblock-id');
 
-    alert("Are you sure?");
+    
+    let msg = "Are you sure?"
 
-    $.ajax(timeblocks_path + "/" + timeblock_id, {
-        method: "DELETE",
-        dataType: "json",
-        contentType: "application/json; charset=UTF-8",
-        data: "{}",
-        success: (_resp) => {location.reload();},
-    });
+    if (confirm(msg) == true) {
+        $.ajax(timeblocks_path + "/" + timeblock_id, {
+            method: "DELETE",
+            dataType: "json",
+            contentType: "application/json; charset=UTF-8",
+            data: "{}",
+            success: (_resp) => {
+                location.reload();
+            },
+        });
+    }
 }
 
 function task_submit_click(ev) {
@@ -375,13 +380,19 @@ function manage_user(user_id, current_user_id) {
 
 function unmanage_user(user_id, manage_id) {
 
-    $.ajax(manage_path + "/" + manage_id, {
-        method: "DELETE",
-        dataType: "json",
-        contentType: "application/json; charset=UTF-8",
-        data: "{}",
-        success: (_resp) => {set_button(user_id, "");},
-    });
+    let msg = "Are you sure? Uncompleted assigned tasks will also be deleted"
+
+    if (confirm(msg) == true) {
+        $.ajax(manage_path + "/" + manage_id, {
+            method: "DELETE",
+            dataType: "json",
+            contentType: "application/json; charset=UTF-8",
+            data: "{}",
+            success: (_resp) => {
+                set_button(user_id, "");
+            },
+        });
+    }
 }
 
 function set_button(user_id, manage_id) {
