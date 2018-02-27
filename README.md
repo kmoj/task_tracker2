@@ -6,7 +6,7 @@ user alice, with manage level 3, bob with manage level 2, and charlie and dan wi
 level 1. Then, alice can decide to manage or unmanage bob, charlie and dan. Bob, however,
 can not manages alice, can decide to manage or unmanage charlie and dan. For the user in same
 level of management, once a user who decided to manages the other, the other can not manage back
-his manager. For example, if charlie clicked manage button on dan, than dan can not click the manage
+his manager. For example, if charlie clicked manage button on dan, then dan can not click the manage
 button on charlie, even they are at same level. Only when charlie cliked unmanage button on dan, then 
 dan can click the manage button on charlie.
 
