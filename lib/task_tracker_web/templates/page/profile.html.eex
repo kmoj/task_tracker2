@@ -9,7 +9,7 @@
 
     <ul>
       <li>
-        <strong>Uer Name:</strong>
+        <strong>User Name:</strong>
         <%= @current_user.name %>
       </li>
 
