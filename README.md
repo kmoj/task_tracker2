@@ -16,6 +16,10 @@ assignee can only edit complete, start time and end time field.
 The start time field and end time input filed in task update page is not set to readonly, for user
 to manually edit the given time stamp, if the user wish to.
 
+On task show page, which is the page showing the task details, the the task assigner can only view the
+task details and timeblocks updated by the assignee. The assignee can view the task details and timeblocks,
+and edit or remove timeblocks.
+
 
 # TaskTracker
 
