@@ -12319,6 +12319,7 @@ function timeblock_cancel_click(ev) {
     (0, _jquery2.default)(".timeblock-edit-button").each(function () {
         var btn = (0, _jquery2.default)(this);
 
+        (0, _jquery2.default)(btn).attr("disabled", false);
         if ((0, _jquery2.default)(btn).data('timeblock-id') == timeblockId) {
             (0, _jquery2.default)(btn).css("display", "");
         }
@@ -12327,6 +12328,7 @@ function timeblock_cancel_click(ev) {
     (0, _jquery2.default)(".timeblock-delete-button").each(function () {
         var btn = (0, _jquery2.default)(this);
 
+        (0, _jquery2.default)(btn).attr("disabled", false);
         if ((0, _jquery2.default)(btn).data('timeblock-id') == timeblockId) {
             (0, _jquery2.default)(btn).css("display", "");
         }
@@ -12338,7 +12340,7 @@ function timeblock_cancel_click(ev) {
         var input = (0, _jquery2.default)(this);
 
         if ((0, _jquery2.default)(input).data('timeblock-id') == timeblockId) {
-            (0, _jquery2.default)(input).css("pointer-events", "none");
+            (0, _jquery2.default)(input).attr("readonly", true);
             (0, _jquery2.default)(input).val(cancelStartTime);
         }
     });
@@ -12347,7 +12349,7 @@ function timeblock_cancel_click(ev) {
         var input = (0, _jquery2.default)(this);
 
         if ((0, _jquery2.default)(input).data('timeblock-id') == timeblockId) {
-            (0, _jquery2.default)(input).css("pointer-events", "none");
+            (0, _jquery2.default)(input).attr("readonly", true);
             (0, _jquery2.default)(input).val(cancelEndTime);
         }
     });
@@ -12435,7 +12437,7 @@ function timeblock_save_click(ev) {
         contentType: "application/json; charset=UTF-8",
         data: text,
         success: function success(resp) {
-            toggleBtnInputDisplay();alert("updated successfully");
+            toggleBtnInputDisplay();location.reload();alert("updated successfully");
         },
         error: function error(jqXHR, textStatus, errorThrown) {
             if (jqXHR.status == 422) {
@@ -12450,9 +12452,21 @@ function timeblock_save_click(ev) {
         (0, _jquery2.default)(theEditBtn).css("display", "");
         (0, _jquery2.default)(theDeleteBtn).css("display", "");
         (0, _jquery2.default)(theCancelBtn).css("display", "none");
-        (0, _jquery2.default)(theStartInput).css("pointer-events", "none");
-        (0, _jquery2.default)(theEndInput).css("pointer-events", "none");
+        (0, _jquery2.default)(theStartInput).attr("readonly", false);
+        (0, _jquery2.default)(theEndInput).attr("readonly", false);
         (0, _jquery2.default)(btn).css("display", "none");
+
+        (0, _jquery2.default)(".timeblock-edit-button").each(function () {
+            var btn = (0, _jquery2.default)(this);
+
+            (0, _jquery2.default)(btn).attr("disabled", false);
+        });
+
+        (0, _jquery2.default)(".timeblock-delete-button").each(function () {
+            var btn = (0, _jquery2.default)(this);
+
+            (0, _jquery2.default)(btn).attr("disabled", false);
+        });
     }
 }
 
@@ -12460,6 +12474,14 @@ function timeblock_edit_click(ev) {
 
     var btn = (0, _jquery2.default)(ev.target);
     var timeblockId = (0, _jquery2.default)(btn).data('timeblock-id');
+
+    (0, _jquery2.default)(".timeblock-edit-button").each(function () {
+        var btn = (0, _jquery2.default)(this);
+
+        if ((0, _jquery2.default)(btn).data('timeblock-id') != timeblockId) {
+            (0, _jquery2.default)(btn).attr("disabled", true);
+        }
+    });
 
     (0, _jquery2.default)(".timeblock-save-button").each(function () {
         var btn = (0, _jquery2.default)(this);
@@ -12474,6 +12496,8 @@ function timeblock_edit_click(ev) {
 
         if ((0, _jquery2.default)(btn).data('timeblock-id') == timeblockId) {
             (0, _jquery2.default)(btn).css("display", "none");
+        } else {
+            (0, _jquery2.default)(btn).attr("disabled", true);
         }
     });
 
@@ -12490,7 +12514,7 @@ function timeblock_edit_click(ev) {
 
         if ((0, _jquery2.default)(input).data('timeblock-id') == timeblockId) {
             cancelStartTime = (0, _jquery2.default)(input).val();
-            (0, _jquery2.default)(input).css("pointer-events", "");
+            (0, _jquery2.default)(input).attr("readonly", false);
         }
     });
 
@@ -12499,7 +12523,7 @@ function timeblock_edit_click(ev) {
 
         if ((0, _jquery2.default)(input).data('timeblock-id') == timeblockId) {
             cancelEndTime = (0, _jquery2.default)(input).val();
-            (0, _jquery2.default)(input).css("pointer-events", "");
+            (0, _jquery2.default)(input).attr("readonly", false);
         }
     });
 
