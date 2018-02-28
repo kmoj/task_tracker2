@@ -134,7 +134,7 @@ function init_manages() {
          dataType: "json",
          contentType: "application/json; charset=UTF-8",
          data: text,
-         success: (resp) => { toggleBtnInputDisplay()},
+         success: (resp) => { toggleBtnInputDisplay(); alert("updated successfully")},
          error: function (jqXHR, textStatus, errorThrown) {
              if (jqXHR.status == 422) {
                 // alert("invalid input");
