@@ -13,14 +13,17 @@ charlie, even they are at same level. Only when charlie cliked unmanage button o
 click the manage button on charlie.
 
 On task update page, the task assigner can only edit title, description, and assign to field,
-assignee can only edit complete, start time and end time field.
+assignee can only edit complete, start time and end time field. The session woking time is calculated
+by the start time and end time. After user finish editing the input box and set it unfocus, the session 
+woking time is updated.
 
 The start time field and end time input filed in task update page is not set to readonly, for user
-to manually edit the given time stamp, if it's incorrect, e.g. user is acctually in a different time zone.
+to manually edit the given time stamp, if it's incorrect, e.g. user forget to click the end button when he
+is finished.
 
 On task show page, which is the page showing the task details, the the task assigner can only view the
 task details and timeblocks updated by the assignee. The assignee can view the task details and timeblocks,
-and edit or remove timeblocks.
+and remove timeblocks.
 
 If a manager decide to unmanage a managee, the completed assigned tasks should persists for furture references,
 however, the umcompleted tasks will be deleted for assignee, since the assignee is no longer under the management.
