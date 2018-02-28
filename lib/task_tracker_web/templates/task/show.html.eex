@@ -25,6 +25,11 @@
               </li>
 
               <li>
+                <strong>Total Time(mins):</strong>
+                <%= @task.time %>
+              </li>
+
+              <li>
                 <strong>Complete:</strong>
                 <%= @task.complete %>
               </li>
@@ -53,15 +58,18 @@
                   <td><input class="timeblock-start-input form-control"
                              value="<%=  String.slice(NaiveDateTime.to_string(time_block.start), 0..18) %>"
                              style="pointer-events: none"
+                             readonly = "readonly"
                              data-timeblock-id= "<%= time_block.id %>"></td>
                   <td><input class="timeblock-end-input form-control"
                              value="<%= String.slice(NaiveDateTime.to_string(time_block.end), 0..18) %>"
                              style="pointer-events: none"
+                             readonly = "readonly"
                              data-timeblock-id= "<%= time_block.id %>"></td>
                   <%= if @task.assigned_to == @current_user.name do %>
                   <td>
                     <span>
                         <button class="timeblock-edit-button btn btn-primary"
+                                style= "display: none;"
                                 data-timeblock-id= "<%= time_block.id %>">
                         Edit
                         </button>
@@ -73,12 +81,13 @@
                         </button>
                     </span>
                     <span>
-                        <button class="timeblock-save-button btn btn-primary"
-                                style="display: none;"
-                                data-timeblock-id = "<%= time_block.id %>"
-                                data-task-id = "<%= @task.id %>">
-                        Save
-                        </button>
+                        <%= button "Save", class: "timeblock-save-button btn btn-primary",
+                                style: "display: none;",
+                                "data-timeblock-id":  time_block.id,
+                                "data-task-id": @task.id,
+                                to: task_path(@conn, :update, @task)
+
+                        %>
                     <span>
                         <button class="timeblock-cancel-button btn btn-primary"
                                 style="display: none;"

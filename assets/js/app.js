@@ -65,8 +65,33 @@ function init_manages() {
         $('.timeblock-cancel-button').click(timeblock_cancel_click);
     }
 
+    if($(".start-time-input")) {
+        $('.start-time-input').focusout(start_time_input_change);
+    }
+
+    if($(".end-time-input")) {
+        $('.end-time-input').focusout(start_time_input_change);
+    }
+
     return;
 
+}
+function  start_time_input_change(ev) {
+
+    let startInput = $(".start-time-input");
+    let endInput = $(".end-time-input");
+    let timeInput = $(".time-input");
+    var t1 = startInput.val().replace(/\-/g, "/");
+    var date1 = new Date(t1);
+    var t2 = endInput.val().replace(/\-/g, "/");
+    var date2 = new Date(t2);
+
+    let workingTime = parseInt((date2 - date1) / 1000 / 60);
+    if(workingTime < 0 ) {
+        alert("End time befor start time");
+    } else {
+        $(timeInput).val(workingTime);
+    }
 }
 
 function  timeblock_cancel_click(ev) {
@@ -300,6 +325,7 @@ function task_submit_click(ev) {
     let btn = $(ev.target);
     let startInput = $(".start-time-input");
     let endInput = $(".end-time-input");
+    let timeInput = $(".time-input");
     let startTime = $(startInput).val();
     let endTime = $(endInput).val();
     let taskId = btn.data('task-id');
@@ -344,6 +370,9 @@ function checkStartEndTime(startTime, endTime) {
     let r2 = endTime.match(reg);
     let d1 = new Date(startTime);
     let d2 = new Date(endTime);
+
+
+
 
     if(r1 == null || r2 == null) {
         return "time format incorrect";

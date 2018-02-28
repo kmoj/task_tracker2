@@ -46,6 +46,11 @@
                 </div>
 
                 <div class="form-group">
+                    <%= label f, :time, "Session Working Time(mins)", class: "control-label" %>
+                    <%= number_input f, :time, class: "time-input form-control", readonly: "readonly", value: 0 %>
+                </div>
+
+                <div class="form-group">
                     <%= label f, :complete, class: "control-label" %>
                     <%= if @current_user.name !== @task.assigned_to do %>
                     <%= checkbox f, :complete, class: "checkbox", disabled: "disabled"%>

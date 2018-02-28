@@ -80,11 +80,11 @@ defmodule TaskTrackerWeb.TaskController do
     task = Job.get_task!(id)
 
     assigned_to = task_params["assigned_to"]
+    time = task_params["time"]
     assignee = Accounts.get_user_by_name(assigned_to)
     managees = Account.get_managee_user(current_user)
     managee_users = Account.get_managee_user(current_user)
     |> Enum.map(fn(x)-> Accounts.get_user!(x.managee_id) end)
-    time = 0
     flag = false
     error_msg = nil
 
@@ -103,7 +103,7 @@ defmodule TaskTrackerWeb.TaskController do
     end
 
     if flag do
-#      task_params = Map.update!(task_params, "time", fn(x) -> 0  end)
+      task_params = Map.update!(task_params, "time", fn(x) ->  String.to_integer(x) + task.time  end)
       case Job.update_task(task, task_params) do
         {:ok, task} ->
           conn

@@ -25,6 +25,7 @@
                 <tr>
                   <th>Title</th>
                   <th>Description</th>
+                  <th>Total Time(mins)</th>
                   <th>Complete</th>
                   <th>Assigned by</th>
 
@@ -36,6 +37,7 @@
                 <tr  class="<%=if task.complete do "alert alert-success"else "alert alert-warning" end%>">
                   <td><%= task.title %></td>
                   <td><%= task.description %></td>
+                  <td><%= task.time %></td>
                   <td >
                   <%= if task.complete do %>
                     <span class="glyphicon-alert" style="height:30px;width:20px;"></span>
@@ -83,6 +85,7 @@
                   <th>Title</th>
                   <th>Description</th>
                   <th>Assigned to</th>
+                  <th>Total Time(mins)</th>
                   <th>Complete</th>
                 </tr>
               </thead>
@@ -93,6 +96,7 @@
                   <td><%= task.title %></td>
                   <td><%= task.description %></td>
                   <td><%= task.assigned_to %></td>
+                  <td><%= task.time %></td>
                   <td >
                   <%= if task.complete do %>
                     <span class="glyphicon-alert" style="height:30px;width:20px;"></span>
