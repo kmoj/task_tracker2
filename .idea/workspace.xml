@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29ffec86-0534-47d5-9da5-b478871ac67d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" afterPath="$PROJECT_DIR$/assets/js/app.js" />
-      <change beforePath="$PROJECT_DIR$/assets/package-lock.json" afterPath="$PROJECT_DIR$/assets/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/assets/package.json" afterPath="$PROJECT_DIR$/assets/package.json" />
-      <change beforePath="$PROJECT_DIR$/lib/task_tracker_web/controllers/task_controller.ex" afterPath="$PROJECT_DIR$/lib/task_tracker_web/controllers/task_controller.ex" />
-      <change beforePath="$PROJECT_DIR$/lib/task_tracker_web/templates/page/editForm.html.eex" afterPath="$PROJECT_DIR$/lib/task_tracker_web/templates/page/editForm.html.eex" />
-      <change beforePath="$PROJECT_DIR$/lib/task_tracker_web/templates/task/index.html.eex" afterPath="$PROJECT_DIR$/lib/task_tracker_web/templates/task/index.html.eex" />
       <change beforePath="$PROJECT_DIR$/lib/task_tracker_web/templates/task/show.html.eex" afterPath="$PROJECT_DIR$/lib/task_tracker_web/templates/task/show.html.eex" />
-      <change beforePath="$PROJECT_DIR$/priv/static/css/app.css" afterPath="$PROJECT_DIR$/priv/static/css/app.css" />
-      <change beforePath="$PROJECT_DIR$/priv/static/js/app.js" afterPath="$PROJECT_DIR$/priv/static/js/app.js" />
-      <change beforePath="$PROJECT_DIR$/priv/static/js/app.js.map" afterPath="$PROJECT_DIR$/priv/static/js/app.js.map" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,14 +16,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="profile.html.eex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/task_tracker_web/templates/page/profile.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="show.html.eex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/task_tracker_web/templates/task/show.html.eex">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="123">
-              <caret line="59" column="57" lean-forward="true" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
+              <caret line="68" column="77" lean-forward="false" selection-start-line="68" selection-start-column="77" selection-end-line="68" selection-end-column="77" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#span#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,20 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task_controller.ex" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/task_tracker_web/controllers/task_controller.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="99" column="9" lean-forward="false" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1559">
+            <state relative-caret-position="169">
               <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
               <folding>
                 <element signature="n#!!block;n#timeblock_cancel_click#0" expanded="false" />
@@ -224,7 +212,7 @@
     <handled-path value="$PROJECT_DIR$/assets/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -349,15 +337,15 @@
       <workItem from="1518963826963" duration="18124000" />
       <workItem from="1519514967281" duration="20138000" />
       <workItem from="1519602884718" duration="30194000" />
-      <workItem from="1519789658792" duration="3097000" />
+      <workItem from="1519789658792" duration="3975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97704000" />
+    <option name="totallyTimeSpent" value="98582000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="20" width="1346" height="688" extended-state="1" />
+    <frame x="10" y="20" width="1346" height="688" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2586466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -583,14 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/task_tracker_web/templates/page/profile.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/task_tracker/job/timeblock.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -636,22 +616,6 @@
         <state relative-caret-position="187">
           <caret line="99" column="9" lean-forward="false" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1559">
-          <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
-          <folding>
-            <element signature="n#!!block;n#timeblock_cancel_click#0" expanded="false" />
-            <element signature="n#!!block;n#timeblock_edit_click#0" expanded="false" />
-            <element signature="n#!!block;n#timeblock_delete_click#0" expanded="false" />
-            <element signature="e#8156#8458#0" expanded="false" />
-            <element signature="n#!!block;n#task_submit_click#0" expanded="false" />
-            <element signature="n#!!block;n#checkStartEndTime#0" expanded="false" />
-            <element signature="n#!!block;n#formatDateTime#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -711,13 +675,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!block;n#timeblock_cancel_click#0" expanded="false" />
+            <element signature="n#!!block;n#timeblock_edit_click#0" expanded="false" />
+            <element signature="n#!!block;n#timeblock_delete_click#0" expanded="false" />
+            <element signature="e#8156#8458#0" expanded="false" />
+            <element signature="n#!!block;n#task_submit_click#0" expanded="false" />
+            <element signature="n#!!block;n#checkStartEndTime#0" expanded="false" />
+            <element signature="n#!!block;n#formatDateTime#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/task_tracker_web/templates/page/profile.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/task_tracker_web/templates/task/show.html.eex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
-          <caret line="59" column="57" lean-forward="true" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
+          <caret line="68" column="77" lean-forward="false" selection-start-line="68" selection-start-column="77" selection-end-line="68" selection-end-column="77" />
           <folding>
             <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#span#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
