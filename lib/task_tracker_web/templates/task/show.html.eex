@@ -79,6 +79,14 @@
                                 data-task-id = "<%= @task.id %>">
                         Save
                         </button>
+                    <span>
+                        <button class="timeblock-cancel-button btn btn-primary"
+                                style="display: none;"
+                                data-timeblock-id = "<%= time_block.id %>"
+                                data-task-id = "<%= @task.id %>">
+                        Cancel
+                        </button>
+                    </span>
                     </span>
                   </td>
                   <% end %>

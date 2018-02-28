@@ -31,6 +31,8 @@ import $ from "jquery";
 //     update_button();
 // }
 
+let cancelStartTime = "";
+let cancelEndTime = "";
 
 function init_manages() {
 
@@ -59,9 +61,67 @@ function init_manages() {
         $('.timeblock-save-button').click(timeblock_save_click);
     }
 
+    if($(".timeblock-cancel-button")) {
+        $('.timeblock-cancel-button').click(timeblock_cancel_click);
+    }
+
     return;
 
 }
+
+function  timeblock_cancel_click(ev) {
+     let btn = $(ev.target);
+     let timeblockId = $(btn).data('timeblock-id');
+     let theEditBtn = null;
+     let theDeleteBtn = null;
+     let theCancelBtn = null;
+     let theStartInput = null;
+     let theEndInput = null;
+
+     $(".timeblock-save-button").each(function() {
+         var btn = $(this);
+
+         if ($(btn).data('timeblock-id') == timeblockId){
+             $(btn).css("display", "none");
+         }
+     });
+
+     $(".timeblock-edit-button").each(function() {
+         var btn = $(this);
+
+         if ($(btn).data('timeblock-id') == timeblockId){
+             $(btn).css("display", "");
+         }
+     });
+
+     $(".timeblock-delete-button").each(function() {
+         var btn = $(this);
+
+         if ($(btn).data('timeblock-id') == timeblockId){
+             $(btn).css("display", "");
+         }
+     });
+
+     $(btn).css("display", "none");
+
+     $(".timeblock-start-input").each(function() {
+         var input = $(this);
+
+         if ($(input).data('timeblock-id') == timeblockId){
+             $(input).css("pointer-events", "none");
+             $(input).val(cancelStartTime);
+         }
+     });
+
+     $(".timeblock-end-input").each(function() {
+         var input = $(this);
+
+         if ($(input).data('timeblock-id') == timeblockId){
+             $(input).css("pointer-events", "none");
+             $(input).val(cancelEndTime);
+         }
+     });
+ }
 
  function timeblock_save_click(ev) {
 
@@ -72,8 +132,18 @@ function init_manages() {
      let newEndTime = "";
      let theEditBtn = null;
      let theDeleteBtn = null;
+     let theCancelBtn = null;
      let theStartInput = null;
      let theEndInput = null;
+
+     $(".timeblock-cancel-button").each(function() {
+         var btn = $(this);
+
+         if ($(btn).data('timeblock-id') == timeblockId){
+             theCancelBtn = $(btn);
+             //$(btn).css("display", "");
+         }
+     });
 
      $(".timeblock-edit-button").each(function() {
          var btn = $(this);
@@ -147,6 +217,7 @@ function init_manages() {
      function toggleBtnInputDisplay() {
          $(theEditBtn).css("display", "");
          $(theDeleteBtn).css("display", "");
+         $(theCancelBtn).css("display", "none");
          $(theStartInput).css("pointer-events", "none");
          $(theEndInput).css("pointer-events", "none");
          $(btn).css("display", "none");
@@ -174,11 +245,20 @@ function timeblock_edit_click(ev) {
         }
     });
 
+    $(".timeblock-cancel-button").each(function() {
+        var btn = $(this);
+
+        if ($(btn).data('timeblock-id') == timeblockId){
+            $(btn).css("display", "");
+        }
+    });
+
     $(".timeblock-start-input").each(function() {
         var input = $(this);
 
         if ($(input).data('timeblock-id') == timeblockId){
-            $(input).css("pointer-events", "");
+            cancelStartTime = $(input).val();
+	    $(input).css("pointer-events", "");
         }
     });
 
@@ -186,6 +266,7 @@ function timeblock_edit_click(ev) {
         var input = $(this);
 
         if ($(input).data('timeblock-id') == timeblockId){
+	    cancelEndTime = $(input).val();
             $(input).css("pointer-events", "");
         }
     });
