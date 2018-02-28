@@ -23,7 +23,7 @@ is finished.
 
 On task show page, which is the page showing the task details, the the task assigner can only view the
 task details and timeblocks updated by the assignee. The assignee can view the task details and timeblocks,
-and remove timeblocks.
+and edit or remove timeblocks.
 
 If a manager decide to unmanage a managee, the completed assigned tasks should persists for furture references,
 however, the umcompleted tasks will be deleted for assignee, since the assignee is no longer under the management.
